@@ -37,6 +37,7 @@ bool SortedList<T>::Contains(T someItem) {
         else if (currN->info > someItem){
             break; // passed where someItem should be, exit.
         }
+        currN = currN->next;
     }
     return false;
 }
@@ -44,6 +45,37 @@ bool SortedList<T>::Contains(T someItem) {
 template<class T>
 void SortedList<T>::AddItem(T item) {
 
+    NodeT* node = new NodeT;
+    node->info = item;
+    node->next = nullptr;
+
+    if (head == nullptr){
+        head = node;
+        length++;
+        return;
+    }
+    NodeT *currN = head;
+    NodeT *prevN = nullptr;
+    while (currN != nullptr){
+
+        if(currN->info > item){
+            node->next = currN;
+            if (prevN != nullptr){
+                prevN->next = node;
+            }
+            else{
+                head = node;
+            }
+            length++;
+            break;
+        }
+        prevN = currN;
+        currN = currN->next;
+    }
+
+    // Add to end of list
+    prevN->next = node;
+    length++;
 }
 
 template<class T>
