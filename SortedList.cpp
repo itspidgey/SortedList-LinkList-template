@@ -26,6 +26,18 @@ int SortedList<T>::GetLength() const {
 
 template<class T>
 bool SortedList<T>::Contains(T someItem) {
+
+    NodeT *currN = head;
+
+    while (currN != nullptr){
+
+        if(currN->info == someItem){
+            return true; // found someItem
+        }
+        else if (currN->info > someItem){
+            break; // passed where someItem should be, exit.
+        }
+    }
     return false;
 }
 
