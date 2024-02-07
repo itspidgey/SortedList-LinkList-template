@@ -11,12 +11,25 @@ SortedList<T>::SortedList() {
 
 template<class T>
 void SortedList<T>::MakeEmpty() {
+    length = 0;
 
+    while (head != nullptr){
+        NodeT* oldHead = head;
+        head = head->next;
+        delete oldHead;
+    }
 }
 
 template<class T>
 bool SortedList<T>::IsFull() const {
-    return false;
+    try {
+        NodeT* node = new NodeT;
+        delete node;
+        return true;
+    }
+    catch(std::bad_alloc error){
+        return false;
+    }
 }
 
 template<class T>
