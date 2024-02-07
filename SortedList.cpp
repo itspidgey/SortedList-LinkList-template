@@ -109,10 +109,12 @@ void SortedList<T>::ResetIterator() {
 
 template<class T>
 int SortedList<T>::GetNextItem() {
-    if (currentPos >= length) {
+    if (iterNode >= length) {
         throw "Out of bounds";
     }
 
-    return T();
+    T nextItem = iterNode->value;
+    iterNode = iterNode->next;
+    return nextItem;
 }
 
