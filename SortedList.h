@@ -31,7 +31,7 @@ public:
   //       item's key, then the function returns true.
   // 	     otherwise it will return false. List is unchanged.
 
-  void PutItem(T item);
+  void AddItem(T item);
   // Function: Adds item to list.
   // Pre:  List has been initialized.
   //       List is not full.
@@ -64,6 +64,7 @@ private:
 
   int length;
   NodeT* head;
+  NodeT* iterNode;
 };
 
 #include "SortedList.cpp"
