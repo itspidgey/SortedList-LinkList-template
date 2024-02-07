@@ -4,7 +4,9 @@
 
 template<class T>
 SortedList<T>::SortedList() {
-
+    length = 0;
+    head = nullptr;
+    iterNode = nullptr;
 }
 
 template<class T>
@@ -28,7 +30,7 @@ bool SortedList<T>::Contains(T someItem) {
 }
 
 template<class T>
-void SortedList<T>::PutItem(T item) {
+void SortedList<T>::AddItem(T item) {
 
 }
 
