@@ -80,12 +80,31 @@ void SortedList<T>::AddItem(T item) {
 
 template<class T>
 void SortedList<T>::DeleteItem(T item) {
+    NodeT* currN = head;
+    NodeT* prevN = nullptr;
 
+    while (currN != nullptr){
+
+        if (currN->value == item){
+
+            if (currN != head){
+                prevN->next = currN->next;
+            }
+            else{
+                head = currN->next;
+            }
+            delete currN;
+            length--;
+            return; //found the value and deleted, now leave the function.
+        }
+            prevN = currN;
+            currN = currN->next; //moves currN to the next Node
+        }
 }
 
 template<class T>
 void SortedList<T>::ResetIterator() {
-
+    iterNode = head;
 }
 
 template<class T>
